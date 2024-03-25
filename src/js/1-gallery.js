@@ -70,6 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
 ];
 
   const gallery = document.querySelector('.gallery');
+  const descriptionContainer = document.createElement('div');
+  descriptionContainer.classList.add('image-description');
+  gallery.after(descriptionContainer);
+
+  gallery.addEventListener('click', (event) => {
+    event.preventDefault();
+    const clickedElement = event.target;
+
+    if (clickedElement.tagName === 'IMG') {
+      const imageDescription = clickedElement.getAttribute('alt');
+      descriptionContainer.textContent = imageDescription;
+    }
+  });
+
 
   images.forEach(image => {
     const galleryItem = document.createElement('li');
