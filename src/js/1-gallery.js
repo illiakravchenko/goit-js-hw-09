@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gallery.appendChild(galleryItem);
   });
 
-  const lightbox = new SimpleLightbox('.gallery a.gallery-link');
+  const lightbox = new SimpleLightbox('.gallery a.gallery-link', {captionsData: "alt"});
   
   lightbox.on('show.simplelightbox', (event) => {
     const altText = event.target.querySelector('img').getAttribute('alt');
